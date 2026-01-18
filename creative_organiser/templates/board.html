@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Status Board</h2>
+
+<div class="board">
+    {% for status, items in columns.items() %}
+        <div class="column">
+            <h3>{{ status }}</h3>
+
+            {% for project in items %}
+                <div class="project-card">
+                    <strong>{{ project.name }}</strong>
+                    <p class="meta">{{ project.type }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<form method="get" class="controls">
+    <input type="text" name="search" placeholder="Search projects..." value="{{ search }}">
+    <select name="sort">
+        <option value="name" {% if sort == "name" %}selected{% endif %}>Sort by name</option>
+        <option value="deadline" {% if sort == "deadline" %}selected{% endif %}>Sort by deadline</option>
+    </select>
+    <button type="submit">Apply</button>
+</form>
+
+<div class="project-list">
+  {% for project in projects %}
+    <a href="{{ url_for('project_detail', project_id=project.id) }}" class="card-link">
+        <div class="card clickable">
+            <h3>{{ project.name }}</h3>
+            <div class="meta">{{ project.type }} · {{ project.status }}</div>
+
+            {% if project.deadline %}
+                <div class="meta">Deadline: {{ project.deadline }}</div>
+            {% endif %}
+        </div>
+    </a>
+{% endfor %}
+
+</div>
+{% endblock %}

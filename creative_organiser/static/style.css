@@ -1,0 +1,144 @@
+:root {
+    --purple: #6b4eff;
+    --light-purple: #f1edff;
+    --text: #2b2b2b;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #fafafa;
+    color: var(--text);
+}
+
+header {
+    padding: 1rem 2rem;
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--purple);
+}
+
+nav .button {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--purple);
+    border-radius: 6px;
+}
+
+main {
+    padding: 2rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem; /* Wider spacing between project boxes */
+}
+
+.project-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--purple);
+    transition: box-shadow 0.2s ease; /* For hover shadow */
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+meta {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.board {
+    display: flex;
+    gap: 1rem;
+}
+
+.column {
+    background: var(--light-purple);
+    padding: 1rem;
+    border-radius: 12px;
+    width: 100%;
+    transition: box-shadow 0.2s ease; /* Hover shadow */
+}
+
+.column:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input, textarea, select, button {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: var(--purple);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Hover effect */
+}
+
+button:hover {
+    background-color: #563de0; /* Slightly darker purple on hover */
+}
+
+.clickable {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(128, 0, 128, 0.15);
+}
+
+.detail-card {
+    max-width: 600px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.detail-card h2 {
+    font-family: 'DM Serif Display', serif; /* Heavier heading font */
+    font-weight: 600; /* Slightly heavier */
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--purple);
+    text-decoration: none;
+}

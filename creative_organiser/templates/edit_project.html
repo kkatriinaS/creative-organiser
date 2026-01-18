@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<a href="{{ url_for('project_detail', project_id=project.id) }}" class="back-link">
+    ← Back to project
+</a>
+
+<h2>Edit project</h2>
+
+<form method="POST">
+    <label>Name</label>
+    <input type="text" name="name" value="{{ project.name }}" required>
+
+    <label>Type</label>
+    <select name="type" required>
+        {% for t in types %}
+            <option value="{{ t }}" {% if t == project.type %}selected{% endif %}>
+                {{ t }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Status</label>
+    <select name="status" required>
+        {% for s in statuses %}
+            <option value="{{ s }}" {% if s == project.status %}selected{% endif %}>
+                {{ s }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label>Deadline</label>
+    <input type="date" name="deadline" value="{{ project.deadline }}">
+
+    <label>Notes</label>
+    <textarea name="notes">{{ project.notes }}</textarea>
+
+    <label>Links</label>
+    <input type="url" name="links" value="{{ project.links }}">
+
+    <button type="submit" class="btn">Save changes</button>
+</form>
+{% endblock %}

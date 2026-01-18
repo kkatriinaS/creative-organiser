@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<a href="{{ url_for('dashboard') }}" class="back-link">← Back to dashboard</a>
+
+<div class="detail-card">
+    <h2>{{ project.name }}</h2>
+
+    <a href="{{ url_for('edit_project', project_id=project.id) }}" class="btn">
+    Edit project
+</a>
+
+
+    <p><strong>Type:</strong> {{ project.type }}</p>
+    <p><strong>Status:</strong> {{ project.status }}</p>
+
+    {% if project.deadline %}
+        <p><strong>Deadline:</strong> {{ project.deadline }}</p>
+    {% endif %}
+
+    {% if project.notes %}
+        <p><strong>Notes:</strong></p>
+        <p class="notes">{{ project.notes }}</p>
+    {% endif %}
+
+    {% if project.links %}
+        <p><strong>Links:</strong></p>
+        <p>
+            <a href="{{ project.links }}" target="_blank">
+                {{ project.links }}
+            </a>
+        </p>
+    {% endif %}
+</div>
+{% endblock %}
